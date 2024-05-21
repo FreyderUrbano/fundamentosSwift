@@ -19,6 +19,9 @@ var float: Float
 var boolean: boolean
 palabras = "Varias palabra"
 
+var camelCase = "string de palabras"
+var numeroEntero = 2
+
 //multiples varibles de un mismo tipo en una sola linea 
 
 var num, num1, num2: Int
@@ -42,3 +45,16 @@ print(nota)//imprimiria estanota no otranota
 
 print("ASI SE CONCATENA UNA VARIABLE \(palabra)")
 print("ASI SE CONCATENA UNA CONSTANTE \(nota)")
+
+//tipado solo para algo complejo 
+
+var myInt: Int = 2
+print(myInt)
+
+var myDouble = 3.5
+print(myDouble)
+
+//se debe tipar los float
+var myFloat: Float = 6.5
+print(myFloat)
+
