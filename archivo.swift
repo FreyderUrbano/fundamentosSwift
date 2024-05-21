@@ -39,3 +39,6 @@ print(palabra)//imprimiria palabra2
 let nota = "estanota"
 nota = "otranota"
 print(nota)//imprimiria estanota no otranota
+
+print("ASI SE CONCATENA UNA VARIABLE \(palabra)")
+print("ASI SE CONCATENA UNA CONSTANTE \(nota)")
