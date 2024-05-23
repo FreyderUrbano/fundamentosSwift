@@ -70,10 +70,8 @@ var myInt = 11
 
 if myInt == 10{
     print("es igual a 10")
-}else if{
-print("es igual a 11")
 }else {
-    print("no es 10")
+print("es igual a 11")
 }
 
 //LISTAS
@@ -207,3 +205,284 @@ String{
 }
 let nombreCompleto = nombres("Juan", "Casanova")
 print("Nombre Completo: \(nombreCompleto)")
+
+//NOVEDADES DE SWIFT ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import Foundation
+
+print("FREYDER URBANO")
+
+//FUNDAMENTOS
+
+//CONVERSIONES DE INT A DOUBLE
+
+var tres = 3
+var double = 0.14159
+var pi = Double(tres) + double
+print(pi)
+
+//BOOLEANOS
+
+let elCieloEsAzul = true
+let elCieloEsRojo = false
+
+//uso
+
+if elCieloEsAzul {
+  print("SI")
+} else {
+  print("NO")
+}
+
+if elCieloEsRojo {
+  print("SI")
+} else {
+  print("NO")
+}
+
+//tuplas
+/*las tuplas estan compuestas por dos o mas tipos de datos en este caso un int y un string
+pero pueden ser de muchos tipos y mas de dos tipos por ejemplo (int,int,int, boolean)
+*/
+let errorHTTP404 = (404, "nOT FOUND")
+
+let (codigoEstado, msgEstado) = errorHTTP404
+print("El codigo de estado es \(codigoEstado)")
+print("El msg de estado es \(msgEstado)")
+
+//si solo necesita un valor de la tupla se coloca un guin bajo
+
+let (soloelCodigo, _) = errorHTTP404
+print("Solo el codigo \(soloelCodigo)")
+
+//se puede acceder a los valores de una tupla con indices
+
+print("El codigo es \(errorHTTP404.0)")
+print("El msg es \(errorHTTP404.1)")
+
+//se pueden nombrar los elementos de una tupla al crear la tupla
+
+let respuestaHttp200 = (codigo: 200, mensaje: "OK", estado: true)
+print(
+  "codigo \(respuestaHttp200.codigo), mensaje: \(respuestaHttp200.mensaje), estado: \(respuestaHttp200.estado) "
+)
+
+//OPCIONALES
+
+let posibleNumero = "123"
+let convertidoAInt = Int(posibleNumero)
+print(convertidoAInt)  //imprime Optional(123)
+
+//no se puede usar nil con constantes ni variables opcionales
+var valorIntOpcional: Int? = 404
+valorIntOpcional = nil
+
+//asignacion de nil automatico
+var palabra: String?  //palabra es nil automaticamente
+
+//IF Y EXTRACCION FORZADA DE OPCIONALES
+
+let numeroCadena = "123456"
+let numeroIntOpcional = Int(numeroCadena)
+
+if numeroIntOpcional != nil {
+  print("nomeroIntOpcional contiene valor \(numeroIntOpcional!)")// la exclamacion al final de numeroIntOpcional extrae el valor de forma forzada
+  // 
+}
+
+//VINCULACION OPCIONAL 
+
+/*
+SINTAXIS 
+if let <#NOMBREDELACONSTANTE#> = <#OPCIONAL#>{
+  <#INSTRUCCIONES#>
+}
+*/
+
+let numeroString = "456789"
+let numOptional = Int(numeroString)
+let numeroReal = 456789
+
+if let num = numOptional, num == numeroReal {
+    print("La cadena \(numeroString) tiene un valor de \(num)")
+} else {
+    print("La cadena \(numeroString) no puede ser convertida o no coincide con \(numeroReal)")
+}
+
+
+if let primero = Int("4"), let segundo = Int("5"), primero < segundo && segundo < 100{
+  print("\(primero) < \(segundo) < 100")
+}
+
+if let primero = Int("4"){
+  if let segundo = Int("5"){
+    if primero < segundo && segundo < 100{
+      print("\(primero) < \(segundo) < 100")
+    }
+  }
+}
+
+//MANEJO DE ERRORES 
+
+/*
+en este ejercicio la funcion prepararUnSandwich puede arrojar errores
+al colocarla funcion dentro de un do se abre un try catch. 
+si prepararUnSandwich tiene errores el primero seria nohayPlatos limpios lo que lleva
+a la funcion lavarPlatos()
+o por faltanIngredientes lo que llevaria a la funcion comprarProviciones
+y si prepararUnSandwich no tiene errores se ira por la funcion comerSandwich
+*/
+
+/* EJEMPLO
+func prepararUnSandwich() throws {
+    // ...
+}
+ 
+do {
+    try prepararUnSandwich()
+ 
+    comerUnSandwich()
+} catch SandwichError.noHayPlatosLimpios {
+    lavarPlatos()
+} catch SandwichError.faltanIngredientes(let ingredientes) {
+    comprarProvisiones(ingredientes)
+}
+*/
+
+//DEPURACION CON ASERSIONES 
+/*
+SE PUEDEN USAR LAS ASERCIONES QUE SEAN NECESARIAS EN PROCESO DE DESARROLLO  
+SE USA LA FUNCION assert(: :file:line:)
+*/
+/*
+let numero = 5000
+assert(numero > 2000, "el numero es mayor que 2000")
+//tambien se puede llamar sin el mensaje
+assert(numero < 2000)
+*/
+
+
+//assertionFailure( :file:line ) SE USA CUANDO UNA ASERCION A FALLADO
+//EJEMPLO
+//assert no se debe usar en tiempo de ejecucion
+let edad = -3
+
+if edad >= 0 {
+    if edad > 10 {
+        print("Puedes subir a la Montaña Rusa o a la Rueda de la Fortuna.")
+    } else {
+        print("Puedes subir a la Rueda de la Fortuna.")
+    }
+} else {
+    print("La edad de una persona no puede ser menor que cero.")
+}
+
+//IMPONER PRECONDICIONES
+
+/*
+SE USA LA FUNCION   precondition(::file:line:), esta funcion recibe una expresion a true o false 
+y un mensaje 
+*/
+
+precondition(index > 0 , "El indice debe ser mayor que cero")
+
+//OPERADOES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
